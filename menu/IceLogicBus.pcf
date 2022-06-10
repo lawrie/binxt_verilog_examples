@@ -1,0 +1,35 @@
+set_io clk_25mhz B7
+
+set_io sclk C11
+set_io cs A11
+set_io mosi B11
+set_io miso D11
+
+set_io led[0] K7
+set_io led[1] L7
+set_io led[2] J7
+set_io led[3] H7
+set_io led[4] L8
+set_io led[5] J8
+
+set_io hsync F1
+set_io vsync F2
+
+set_io red[0] J1
+set_io red[1] G3
+set_io red[2] G2
+
+set_io green[0] K1
+set_io green[1] H2
+set_io green[2] G1
+set_io green[3] F3
+
+set_io blue[0] F4
+set_io blue[1] H1
+set_io blue[2] H3
+
+set_io tx F9
+set_io rx F10
+set_io gnd G11
+
+
