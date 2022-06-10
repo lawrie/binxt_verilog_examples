@@ -10,5 +10,5 @@ firmware.bin: firmware.elf
 	/opt/riscv/bin/riscv64-unknown-elf-objcopy -O binary firmware.elf firmware.bin
 
 firmware.hex: firmware.bin
-	python3 makehex.py $^ 1536 > $@
+	python3 makehex.py $^ 2048 > $@
 

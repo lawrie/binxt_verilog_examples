@@ -4,7 +4,7 @@ module font_rom(
   output reg [7:0] data_out
 );
 
-  reg [7:0] store[0:4095];
+  reg [7:0] store[0:2047];
 
   initial
   begin

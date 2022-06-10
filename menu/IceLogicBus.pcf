@@ -1,9 +1,9 @@
 set_io clk_25mhz B7
 
-set_io sclk C11
-set_io cs A11
-set_io mosi B11
-set_io miso D11
+set_io sclk A4
+set_io cs B5
+set_io mosi B4
+set_io miso A1
 
 set_io led[0] K7
 set_io led[1] L7

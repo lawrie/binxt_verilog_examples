@@ -46,7 +46,7 @@ module attosoc (
 	output reg set_ch
 );
 
-	parameter integer MEM_WORDS = 1536;
+	parameter integer MEM_WORDS = 2048;
 	parameter [31:0] STACKADDR = 32'h 0000_0000 + (4*MEM_WORDS);       // end of memory
 	parameter [31:0] PROGADDR_RESET = 32'h 0000_0000;       // start of memory
 
