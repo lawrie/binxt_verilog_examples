@@ -3,7 +3,7 @@ all: firmware.hex
 clean:
 	rm -f firmware.hex firmware.elf firmware.bin
 
-firmware.elf: sections.lds start.s firmware.c
+firmware.elf: sections.lds start.s firmware.c sdcard.c
 	/opt/riscv/bin/riscv64-unknown-elf-gcc -mabi=ilp32 -march=rv32i -Wl,-Bstatic,-T,sections.lds,--strip-debug -ffreestanding -nostdlib -o firmware.elf start.s firmware.c sdcard.c
 
 firmware.bin: firmware.elf

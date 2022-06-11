@@ -161,10 +161,7 @@ void sdcard_init()
         for (int i = 0; i < 10; i++)
                 sdcard_xfer(0xff);
 
-	sdcard_error("r1\n",0);
         r1 = sdcard_cmd_r1(0, 0);
-
-	sdcard_error("Done r1\n",0);
 
         if (r1 != 0x01) {
                 sdcard_error("Unexpected SD Card CMD0 R1", r1);

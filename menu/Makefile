@@ -18,17 +18,19 @@
 VERILOG = top.v font_rom.v vga_video.v \
           attosoc.v picorv32.v simpleuart.v spi_master.v sdcard.v
 
+PCF = IceLogicBus.pcf
+
+compile : bin/toplevel.bin
+
 bin/toplevel.json : ${VERILOG}
 	mkdir -p bin
 	yosys -v3 -p "synth_ice40 -top top -json bin/toplevel.json" ${VERILOG}
 
-bin/toplevel.asc : IceLogicBus.pcf bin/toplevel.json
-	nextpnr-ice40 --freq 25 --hx8k --package bg121:4k --json bin/toplevel.json --pcf IceLogicBus.pcf --asc bin/toplevel.asc --opt-timing --placer heap
+bin/toplevel.asc : ${PCF} bin/toplevel.json
+	nextpnr-ice40 --freq 25 --hx8k --package bg121:4k --json bin/toplevel.json --pcf ${PCF} --asc bin/toplevel.asc --opt-timing
 
 bin/toplevel.bin : bin/toplevel.asc
 	icepack bin/toplevel.asc bin/toplevel.bin
-
-compile : bin/toplevel.bin
 
 time: bin/toplevel.bin
 	icetime -tmd hx8k bin/toplevel.asc
@@ -39,4 +41,3 @@ prog : bin/toplevel.bin
 
 clean :
 	rm -rf bin
-	$(RM) -f chip.blif chip.txt chip.ex chip.bin
