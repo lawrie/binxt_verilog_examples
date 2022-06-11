@@ -1,0 +1,14 @@
+set_io clk_25mhz B7
+
+set_io a C1
+set_io b D1
+set_io c E3
+set_io d D3
+set_io e E1
+set_io f C2
+set_io g C3
+set_io dp D2
+set_io ca[0] C4
+set_io ca[1] B2
+set_io ca[2] B1
+
